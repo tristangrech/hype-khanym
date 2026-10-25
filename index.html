@@ -77,7 +77,7 @@ footer{text-align:center;padding:24px 0 40px}
     <dt>Supply sent to slingoor (unsolicited)</dt><dd data-k="slingoorPct"></dd>
     <dt>slingoor's wallet (taken from his own public posts)</dt><dd data-k="slingoorWallet"></dd>
     <dt>Token transfer tx</dt><dd data-k="transferTx"></dd>
-    <dt>Creator-fee share tx</dt><dd data-k="feeShareTx"></dd>
+    <dt>Creator fees (pump.fun creator rewards)</dt><dd>Go to the dev wallet. Disclosed here and claimable on-chain by the dev wallet only.</dd>
     <dt>Creation tx (dev buy happened inside it)</dt><dd data-k="createTx"></dd>
     <dt>Dev wallet</dt><dd data-k="devWallet"></dd>
     <dt>Dev wallet holding</dt><dd data-k="devHolding"></dd>
@@ -87,7 +87,7 @@ footer{text-align:center;padding:24px 0 40px}
 
 <section class="card fine">
   <h2>Read this</h2>
-  <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most pump.fun coins never graduate and go to zero. One wallet holds a big share of supply. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
+  <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most pump.fun coins never graduate and go to zero. Big holders, slingoor included, can sell at any time. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
 </section>
 
 <footer>
@@ -103,7 +103,6 @@ const CFG = {
   slingoorWallet: "",
   slingoorPct: "",        // e.g. "50% (500,000,000 HYPE)"
   transferTx: "",         // tx signature
-  feeShareTx: "",         // tx signature
   createTx: "",           // tx signature
   devWallet: "",
   devHolding: "",         // e.g. "0%"
@@ -112,7 +111,7 @@ const CFG = {
 // ============================================================================
 const $ = id => document.getElementById(id);
 const solscan = (v, kind) => `<a href="https://solscan.io/${kind}/${v}" target="_blank" rel="noopener">${v}</a>`;
-const LINK = {slingoorWallet:"account", devWallet:"account", transferTx:"tx", feeShareTx:"tx", createTx:"tx"};
+const LINK = {slingoorWallet:"account", devWallet:"account", transferTx:"tx", createTx:"tx"};
 document.querySelectorAll("dd[data-k]").forEach(dd => {
   const k = dd.dataset.k, v = CFG[k];
   if (!v) { dd.textContent = "pending, posted right after launch"; dd.className = "pending"; return; }
