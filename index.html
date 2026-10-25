@@ -74,20 +74,17 @@ footer{text-align:center;padding:24px 0 40px}
   <h2>Transparency</h2>
   <p class="fine" style="margin-bottom:12px">Every claim below links to the chain. If a field says "pending", the link hasn't been posted yet.</p>
   <dl>
-    <dt>Supply sent to slingoor (unsolicited)</dt><dd data-k="slingoorPct"></dd>
-    <dt>slingoor's wallet (taken from his own public posts)</dt><dd data-k="slingoorWallet"></dd>
-    <dt>Token transfer tx</dt><dd data-k="transferTx"></dd>
-    <dt>Creator fees (pump.fun creator rewards)</dt><dd>Go to the dev wallet. Disclosed here and claimable on-chain by the dev wallet only.</dd>
+    <dt>Creator fees (pump.fun creator rewards)</dt><dd style="font-family:inherit">Go to the dev wallet. Disclosed here and claimable on-chain by the dev wallet only.</dd>
     <dt>Creation tx (dev buy happened inside it)</dt><dd data-k="createTx"></dd>
     <dt>Dev wallet</dt><dd data-k="devWallet"></dd>
     <dt>Dev wallet holding</dt><dd data-k="devHolding"></dd>
   </dl>
-  <p class="fine" style="margin-top:12px">slingoor did not ask for these tokens and has not endorsed $HYPE. He can sell them at any time, and that could crash the price. No bundles, no side wallets, no fake volume.</p>
+  <p class="fine" style="margin-top:12px">Community run. No KOL allocations, no bundles, no side wallets, no fake volume. If the dev ever sells, it gets announced here and on X first.</p>
 </section>
 
 <section class="card fine">
   <h2>Read this</h2>
-  <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most pump.fun coins never graduate and go to zero. Big holders, slingoor included, can sell at any time. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
+  <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most pump.fun coins never graduate and go to zero. Any holder, the dev included, can sell at any time. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
 </section>
 
 <footer>
@@ -100,18 +97,15 @@ footer{text-align:center;padding:24px 0 40px}
 // ===== Fill these in after launch. Leave "" for anything not posted yet. =====
 const CFG = {
   ca: "",                 // token mint address (pump.fun CA, ends in "pump")
-  slingoorWallet: "",
-  slingoorPct: "",        // e.g. "50% (500,000,000 HYPE)"
-  transferTx: "",         // tx signature
   createTx: "",           // tx signature
   devWallet: "",
-  devHolding: "",         // e.g. "0%"
+  devHolding: "",         // e.g. "0.52% (5.25M HYPE), bought in the creation tx"
   x: "https://x.com/"     // project X account
 };
 // ============================================================================
 const $ = id => document.getElementById(id);
 const solscan = (v, kind) => `<a href="https://solscan.io/${kind}/${v}" target="_blank" rel="noopener">${v}</a>`;
-const LINK = {slingoorWallet:"account", devWallet:"account", transferTx:"tx", createTx:"tx"};
+const LINK = {devWallet:"account", createTx:"tx"};
 document.querySelectorAll("dd[data-k]").forEach(dd => {
   const k = dd.dataset.k, v = CFG[k];
   if (!v) { dd.textContent = "pending, posted right after launch"; dd.className = "pending"; return; }
