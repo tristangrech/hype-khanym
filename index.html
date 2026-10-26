@@ -27,7 +27,7 @@ a:hover{color:var(--lime2)}
 .wrap{max-width:720px;margin:0 auto;padding:0 16px}
 header{text-align:center;padding:22px 0 6px;position:relative}
 header::before{content:"HYPE://MAINNET-BETA  ·  SOL";display:block;font:11px/1 var(--mono);letter-spacing:.18em;color:var(--mut);text-align:left;padding:0 0 10px;border-bottom:1px solid var(--line);margin-bottom:16px}
-header img{display:block;width:100%;max-width:520px;margin:0 auto;aspect-ratio:1;object-fit:cover;border-radius:4px;border:1px solid var(--line2);box-shadow:0 0 0 4px #000,0 0 0 5px #3ddc8433,0 0 60px #3ddc8422}
+header img,header video{display:block;width:100%;max-width:520px;margin:0 auto;aspect-ratio:1;object-fit:cover;border-radius:4px;border:1px solid var(--line2);box-shadow:0 0 0 4px #000,0 0 0 5px #3ddc8433,0 0 60px #3ddc8422}
 h1{font:800 clamp(3rem,15vw,4.6rem)/1 var(--mono);margin:22px 0 4px;letter-spacing:-.02em;color:var(--lime);text-shadow:0 0 24px #3ddc8455}
 h1 small{display:block;font:600 clamp(.72rem,3.2vw,.9rem)/1.4 var(--mono);color:var(--gold);letter-spacing:.22em;margin-top:12px;text-shadow:none}
 .tag{color:var(--mut);margin:12px 0 18px;font-size:.98rem}
@@ -80,7 +80,7 @@ footer::after{content:"EOF";display:block;margin-top:22px;font:11px var(--mono);
   .wrap{max-width:1040px;padding:0 28px}
   header{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr auto auto 1fr;column-gap:48px;text-align:left;padding-top:28px}
   header::before{grid-column:1/-1;margin-bottom:24px}
-  header img{grid-column:1;grid-row:2/6;max-width:none;margin:0}
+  header img,header video{grid-column:1;grid-row:2/6;max-width:none;margin:0}
   h1{grid-column:2;grid-row:3;margin:0;font-size:6rem}
   .tag{grid-column:2;grid-row:4;font-size:1.08rem;margin:22px 0 0}
   .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;align-items:start}
@@ -93,7 +93,7 @@ footer::after{content:"EOF";display:block;margin-top:22px;font:11px var(--mono);
 <div class="orn"></div>
 <div class="wrap">
 <header>
-  <img id="hero" src="hero.jpg" alt="The Princess: green-haired woman holding a green HYPE coin, Almaty mountains behind her" onerror="this.onerror=null;this.src='placeholder.svg'">
+  <video id="hero" autoplay muted loop playsinline preload="auto" poster="hero.jpg" aria-label="The Princess: green-haired woman holding a glowing green HYPE coin, Almaty mountains behind her"><source src="hero.mp4" type="video/mp4"><img src="hero.jpg" alt="The Princess: green-haired woman holding a green HYPE coin, Almaty mountains behind her"></video>
   <h1>$HYPE<small>HYPER YURTS PRINCESS ENHANCED</small></h1>
   <p class="tag">Kazakh steppe royalty, enhanced 👑 Launched on pump.fun.<br><b>Not Hyperliquid.</b> Always check the CA.</p>
 </header>
