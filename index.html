@@ -9,145 +9,391 @@
 <meta property="og:description" content="Kazakh steppe royalty, enhanced. A pump.fun Holder Rewards coin: hold $HYPE, earn SOL from trading fees. Not Hyperliquid.">
 <meta property="og:image" content="https://tristangrech.github.io/hype-khanym/banner.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#06100a">
 <link rel="icon" href="pfp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Permanent+Marker&display=swap">
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script>
+// Hide the hero letters only until GSAP animates them in. Failsafe shows them if the CDN is slow or down.
+document.documentElement.classList.add("pre");
+setTimeout(() => document.documentElement.classList.remove("pre"), 2500);
+</script>
 <style>
-:root{--bg:#000;--bg2:#0a0a0a;--line:#1c2a22;--line2:#2a3d31;--lime:#3ddc84;--lime2:#9df5c2;--gold:#d4a017;--gold2:#f3d27a;--ink:#e8f1ec;--mut:#8a9a91;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace}
+:root{
+  --bg:#06100a;--bg2:#0b1b12;--deep:#0f3b25;
+  --lime:#3ddc84;--lime2:#9df5c2;--gold:#d4a017;--gold2:#f3d27a;
+  --cream:#f5eedb;--ink:#eef3ec;--mut:#9aab9f;--black:#040906;
+  --disp:"Anton",Impact,Haettenschweiler,"Arial Narrow Bold","Liberation Sans Narrow",sans-serif;
+  --body:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --hand:"Permanent Marker","Bradley Hand","Comic Sans MS",cursive;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --pad:clamp(18px,5vw,64px);
+  --orn:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22'%3E%3Cpath d='M0 22 C0 6 14 6 14 14 C14 19 8 19 8 15 M44 22 C44 6 30 6 30 14 C30 19 36 19 36 15 M14 14 Q22 2 30 14' fill='none' stroke='%23d4a017' stroke-width='2.4'/%3E%3C/svg%3E");
+  --orn-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22'%3E%3Cpath d='M0 22 C0 6 14 6 14 14 C14 19 8 19 8 15 M44 22 C44 6 30 6 30 14 C30 19 36 19 36 15 M14 14 Q22 2 30 14' fill='none' stroke='%23040906' stroke-width='2.4'/%3E%3C/svg%3E");
+}
 *{box-sizing:border-box;margin:0}
-html{background:var(--bg)}
-body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:
-  radial-gradient(ellipse 80% 50% at 50% 0,#3ddc8414,transparent 70%),
-  linear-gradient(#ffffff06 1px,transparent 1px) 0 0/28px 28px,
-  linear-gradient(90deg,#ffffff06 1px,transparent 1px) 0 0/28px 28px,var(--bg);min-height:100vh}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(#0000 0 2px,#0000002e 2px 3px);z-index:9}
-::selection{background:var(--lime);color:#000}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{font:400 17px/1.6 var(--body);color:var(--ink);background:var(--bg);overflow-x:clip;min-height:100vh}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+::selection{background:var(--gold);color:#000}
 a{color:var(--lime);text-decoration-color:#3ddc8466;text-underline-offset:3px}
 a:hover{color:var(--lime2)}
-.orn{height:8px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='22'%3E%3Cpath d='M0 22 C0 6 14 6 14 14 C14 19 8 19 8 15 M44 22 C44 6 30 6 30 14 C30 19 36 19 36 15 M14 14 Q22 2 30 14' fill='none' stroke='%23d4a017' stroke-width='2.4'/%3E%3C/svg%3E") 0 50%/16px 8px repeat-x;opacity:.45;border-bottom:1px solid #d4a01733;padding:0}
-.orn:last-of-type{border-bottom:0;border-top:1px solid #d4a01733}
-.wrap{max-width:720px;margin:0 auto;padding:0 16px}
-header{text-align:center;padding:22px 0 6px;position:relative}
-header::before{content:"HYPE://MAINNET-BETA  ·  SOL";display:block;font:11px/1 var(--mono);letter-spacing:.18em;color:var(--mut);text-align:left;padding:0 0 10px;border-bottom:1px solid var(--line);margin-bottom:16px}
-header img,header video{display:block;width:100%;max-width:520px;margin:0 auto;aspect-ratio:1;object-fit:cover;border-radius:4px;border:1px solid var(--line2);box-shadow:0 0 0 4px #000,0 0 0 5px #3ddc8433,0 0 60px #3ddc8422}
-h1{font:800 clamp(3rem,15vw,4.6rem)/1 var(--mono);margin:22px 0 4px;letter-spacing:-.02em;color:var(--lime);text-shadow:0 0 24px #3ddc8455}
-h1 small{display:block;font:600 clamp(.72rem,3.2vw,.9rem)/1.4 var(--mono);color:var(--gold);letter-spacing:.22em;margin-top:12px;text-shadow:none}
-.tag{color:var(--mut);margin:12px 0 18px;font-size:.98rem}
-.tag b{color:var(--ink);font-family:var(--mono);font-size:.92em;border:1px solid var(--gold);color:var(--gold2);padding:1px 6px;border-radius:2px}
-.card{position:relative;background:linear-gradient(#0c0f0dcc,#070807cc);border:1px solid var(--line);border-radius:4px;padding:16px;margin:14px 0}
-.card::before,.card::after{content:"";position:absolute;width:8px;height:8px;border:1px solid var(--lime);opacity:.7}
-.card::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
-.card::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
-h2{display:flex;align-items:center;gap:8px;font:600 .8rem/1 var(--mono);color:var(--lime);text-transform:lowercase;letter-spacing:.06em;margin:-16px -16px 14px;padding:11px 16px;border-bottom:1px solid var(--line);background:#0d1310}
-h2::before{content:">";color:var(--gold)}
-h2::after{margin-left:auto}
-.card:has(.ca) h2::after{content:"LIVE";text-transform:uppercase;font:700 .66rem/1 var(--mono);letter-spacing:.14em;padding:4px 7px 4px 18px;border:1px solid #3ddc8466;color:var(--lime);border-radius:2px;background:radial-gradient(circle at 9px 50%,var(--lime) 0 3px,transparent 3.5px)}
-.card:has(.buy[aria-disabled=true]) h2::after{content:"PENDING";border-color:#d4a01766;color:var(--gold);background:radial-gradient(circle at 9px 50%,var(--gold) 0 3px,transparent 3.5px)}
-.card p+p{margin-top:10px}
-.ca{display:flex;gap:8px;align-items:stretch}
-.ca code{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:13px/1.4 var(--mono);color:var(--lime2);background:#000;padding:12px;border-radius:3px;border:1px solid var(--line2)}
-.ca code::before{content:"$ ";color:var(--gold)}
-button,.btn{font:700 .95rem/1.2 var(--mono);letter-spacing:.04em;border:1px solid transparent;border-radius:3px;padding:12px 16px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;transition:background .15s,box-shadow .15s,color .15s}
-.copy{background:transparent;color:var(--gold2);border-color:var(--gold);text-transform:uppercase}
-.copy:hover{background:var(--gold);color:#000}
-.buy{display:block;width:100%;background:var(--lime);color:#001a0c;font-size:1.02rem;padding:15px;margin-top:12px;text-transform:uppercase;letter-spacing:.08em;box-shadow:0 0 24px #3ddc8444}
-.buy:hover{color:#000;background:var(--lime2);box-shadow:0 0 34px #3ddc8477}
-.buy[aria-disabled=true]{opacity:1;pointer-events:none;background:repeating-linear-gradient(135deg,#0d1310 0 8px,#101a14 8px 16px);color:#3ddc8488;border-color:#3ddc8433;box-shadow:none}
-.warn{font-size:.86rem;color:var(--gold2);margin-top:12px;padding-left:10px;border-left:2px solid var(--gold)}
-ul{padding:0;list-style:none}
-li{position:relative;padding-left:16px;margin:4px 0}
-li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--lime);transform:rotate(45deg)}
-.card ul[style]{margin:12px 0 0!important}
-.acr{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.acr div{background:#000;border:1px solid var(--line);border-radius:3px;padding:14px 10px;text-align:center;font:.78rem var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
-.acr b{display:block;font:800 2.2rem/1 var(--mono);color:var(--lime);margin-bottom:6px;text-shadow:0 0 18px #3ddc8466}
-dl{display:grid;gap:4px}
-dt{font:600 .72rem/1.3 var(--mono);color:var(--mut);text-transform:uppercase;letter-spacing:.1em;margin-top:10px}
-dt:first-child{margin-top:0}
-dt::before{content:"// ";color:var(--gold)}
-dd{font:13px/1.5 var(--mono);word-break:break-all;color:var(--ink);background:#000;border:1px solid var(--line);border-radius:3px;padding:9px 11px}
-dd.pending{word-break:normal;color:var(--gold2);font:italic .88rem/1.4 var(--mono);display:flex;align-items:center;gap:10px}
-dd.pending::before{content:"PENDING";font:700 .62rem/1 var(--mono);font-style:normal;letter-spacing:.14em;padding:4px 6px 4px 16px;border:1px solid #d4a01766;border-radius:2px;color:var(--gold);background:radial-gradient(circle at 8px 50%,var(--gold) 0 2.5px,transparent 3px);flex:none}
-.fine{font-size:.88rem;color:var(--mut)}
-.card.fine{border-color:#d4a01744}
-.card.fine::before,.card.fine::after{border-color:var(--gold)}
-.card.fine h2{color:var(--gold2)}
-footer{text-align:center;padding:20px 0 40px}
-.x{background:#000;color:var(--ink);border-color:var(--line2)}
-.x:hover{border-color:var(--lime);color:var(--lime)}
-.x::before{content:"";display:inline-block;width:7px;height:7px;background:var(--lime);margin-right:10px;vertical-align:1px;transform:rotate(45deg)}
-footer::after{content:"EOF";display:block;margin-top:22px;font:11px var(--mono);letter-spacing:.3em;color:#3a4a41}
-@media(min-width:640px){.acr{grid-template-columns:repeat(4,1fr)}.card{padding:20px}h2{margin:-20px -20px 16px;padding:12px 20px}}
+img,video,svg{display:block;max-width:100%}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--pad)}
+h2{font:400 clamp(2.7rem,12vw,6.4rem)/.9 var(--disp);text-transform:uppercase;letter-spacing:.005em;color:var(--cream)}
+.note{display:inline-block;font:400 1.15rem/1.1 var(--hand);color:var(--gold2);transform:rotate(-4deg)}
+.fine{font-size:.9rem;color:var(--mut)}
+
+/* buttons: flat, hard shadow, press-down */
+.btn,button{font:800 1rem/1.1 var(--body);font-stretch:85%;letter-spacing:.03em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:.5em;border:2.5px solid var(--black);border-radius:999px;padding:14px 22px;box-shadow:4px 4px 0 var(--black);transition:transform .12s,box-shadow .12s,background .15s,color .15s}
+.btn:hover,button:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 var(--black)}
+.btn:active,button:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--black)}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:3px}
+
+/* ---------- nav ---------- */
+.top{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad)}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--cream);font:400 1.35rem/1 var(--disp);letter-spacing:.02em;background:#040906b3;padding:5px 14px 5px 5px;border-radius:999px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.brand img{width:34px;height:34px;border-radius:50%;border:2px solid var(--gold)}
+.brand:hover{color:var(--gold2)}
+.brand:hover img{animation:flip .7s}
+@keyframes flip{to{transform:rotateY(360deg)}}
+.top .btn{padding:10px 16px;font-size:.85rem;background:var(--lime);color:var(--black);box-shadow:3px 3px 0 var(--black)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-bottom:28px}
+.hero-media{position:relative;overflow:hidden}
+.hero-media::after{content:"";position:absolute;inset:auto 0 0;height:38%;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+#hero{width:100%;aspect-ratio:1;object-fit:cover;object-position:50% 30%;background:var(--deep)}
+.hero-copy{position:relative;z-index:2;padding-inline:var(--pad);margin-top:-.2em}
+h1{font:400 clamp(6.4rem,34vw,17rem)/.82 var(--disp);color:var(--lime);letter-spacing:-.01em;margin-top:-.42em}
+h1 .word{display:block;text-shadow:.035em .035em 0 var(--black)}
+h1 .word span{display:inline-block}
+h1 .word span:first-child{color:var(--gold);font-size:.62em;vertical-align:.52em;margin-right:.03em;transform:rotate(-8deg)}
+h1 small{display:block;font:800 clamp(1.05rem,5.2vw,1.9rem)/1.05 var(--body);font-stretch:75%;color:var(--cream);letter-spacing:.02em;margin-top:14px}
+.tag{margin-top:14px;font-size:1.06rem;color:#cfd9d2;max-width:34ch}
+.tag b{font-weight:800;color:var(--black);background:var(--gold);padding:1px 7px;border-radius:4px;display:inline-block;transform:rotate(-1.5deg);margin:4px 2px 0 0}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.cta-row .btn{background:var(--cream);color:var(--black)}
+.badge{position:absolute;z-index:3;right:12px;top:calc(100vw - 150px);width:112px;height:112px;transform:rotate(10deg);filter:drop-shadow(4px 4px 0 var(--black));transition:transform .3s}
+.badge:hover{transform:rotate(-6deg) scale(1.08)}
+.badge .ring{transform-origin:60px 60px;animation:spin 18s linear infinite}
+.badge text{font:800 11.5px var(--body);font-stretch:80%;fill:var(--black);letter-spacing:.04em}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pre h1 .word span,.pre .badge{opacity:0}
+.hero-edge,.meet{display:none}
+
+/* ---------- tapes ---------- */
+.tapes{position:relative;height:122px;overflow:hidden;margin:6px 0 0}
+.tape{position:absolute;left:-5%;width:110%;overflow:hidden;white-space:nowrap;border-block:2.5px solid var(--black);font:400 1.5rem/1 var(--disp);letter-spacing:.03em;padding:10px 0}
+.tape.a{top:20px;background:var(--lime);color:var(--black);transform:rotate(-3deg);z-index:2}
+.tape.b{top:58px;background:var(--black);color:var(--gold2);border-color:var(--gold);transform:rotate(2deg)}
+.track{display:flex;width:max-content;animation:mq 30s linear infinite}
+.tape.b .track{animation-direction:reverse}
+.track span{padding-right:.4em}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- contract ticket ---------- */
+.get{padding-block:clamp(48px,9vw,110px) clamp(56px,9vw,120px)}
+.ticket{position:relative;background:var(--cream);color:#0b130e;border:2.5px solid var(--black);border-radius:22px;padding:30px 20px 24px;box-shadow:8px 8px 0 var(--lime)}
+.ticket::before,.ticket::after{content:"";position:absolute;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--bg);border:2.5px solid var(--black)}
+.ticket::before{left:-17px;clip-path:inset(0 0 0 50%)}
+.ticket::after{right:-17px;clip-path:inset(0 50% 0 0)}
+.ticket h2{color:var(--black);font-size:clamp(2.6rem,12vw,5.2rem)}
+.ticket .note{color:#7a5a00;margin-top:6px;font-size:1.25rem}
+.stamp{position:absolute;top:-16px;right:18px;transform:rotate(7deg)}
+.stamp::before{content:"LIVE";display:block;font:400 1.15rem/1 var(--disp);letter-spacing:.12em;color:var(--black);background:var(--lime);border:2.5px solid var(--black);padding:8px 12px 7px;border-radius:8px;box-shadow:3px 3px 0 var(--black)}
+.ticket:has(.buy[aria-disabled=true]) .stamp::before{content:"PENDING";background:var(--gold)}
+.ca{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.ca code{display:block;font:600 15px/1.45 var(--mono);word-break:break-all;background:#fffaf0;border:2px dashed #0b130e;border-radius:12px;padding:14px 16px;user-select:all}
+.copy{align-self:flex-start;background:var(--black);color:var(--cream);border-color:var(--black);box-shadow:4px 4px 0 var(--gold);transform:rotate(-1.5deg);min-width:132px}
+.copy:hover{background:var(--deep);box-shadow:6px 6px 0 var(--gold);transform:rotate(-1.5deg) translate(-1px,-1px)}
+.copy:active{transform:rotate(-1.5deg) translate(4px,4px);box-shadow:0 0 0 var(--gold)}
+.copy.done{background:var(--lime);color:var(--black)}
+.buy{display:flex;width:100%;margin-top:18px;background:var(--lime);color:var(--black);font-size:1.2rem;padding:18px;border-radius:16px}
+.buy:hover{background:var(--lime2);color:var(--black)}
+.buy[aria-disabled=true]{pointer-events:none;background:repeating-linear-gradient(135deg,#e6dcc2 0 10px,#efe6cf 10px 20px);color:#7a6f57;box-shadow:none}
+.warn{font-size:.93rem;margin-top:16px;padding:10px 12px 10px 40px;position:relative;background:#f3d27a66;border-radius:10px;font-weight:600}
+.warn::before{content:"!";position:absolute;left:10px;top:10px;width:22px;height:22px;border-radius:50%;background:var(--black);color:var(--gold2);font:400 .95rem/22px var(--disp);text-align:center}
+
+/* ---------- holder rewards ---------- */
+.rewards{padding-block:clamp(40px,8vw,100px)}
+.rewards h2{color:var(--lime)}
+.rewards h2 em{font-style:normal;color:var(--cream);display:block}
+.rw-head .note{margin-top:10px}
+.lead{font-size:1.18rem;line-height:1.55;margin-top:26px;max-width:40ch}
+.lead b{color:var(--gold2)}
+.steps{list-style:none;padding:0;margin:26px 0 0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:3.2rem 1fr;align-items:center;gap:6px;padding:16px 0;border-top:1.5px solid #ffffff1f;font:700 1.22rem/1.25 var(--body);font-stretch:85%}
+.steps li:last-child{border-bottom:1.5px solid #ffffff1f}
+.steps li::before{content:counter(s);font:400 2.8rem/1 var(--disp);color:transparent;-webkit-text-stroke:1.5px var(--gold);transition:color .2s,transform .2s}
+.steps li:hover::before{color:var(--gold);transform:rotate(-8deg) scale(1.1)}
+.rewards .fine{margin-top:18px;max-width:52ch}
+
+/* ---------- milestone ---------- */
+.goal{padding-block:clamp(36px,7vw,80px);overflow:hidden}
+.goal-in{position:relative;width:108%;margin-left:-4%;transform:rotate(-2deg);background:var(--gold);color:var(--black);border-block:2.5px solid var(--black);padding:46px calc(var(--pad) + 4%) 40px}
+.goal-in::before,.goal-in::after{content:"";position:absolute;left:0;right:0;height:11px;background:var(--orn-dark) 0 50%/22px 11px repeat-x;opacity:.45}
+.goal-in::before{top:9px}
+.goal-in::after{bottom:9px}
+.goal-row{position:relative;max-width:1200px;margin:0 auto;transform:rotate(2deg)}
+.goal-tag{display:inline-block;font:400 1.2rem/1 var(--hand);background:var(--black);color:var(--gold2);padding:8px 14px 6px;border-radius:6px;transform:rotate(-3deg);margin-bottom:14px}
+.goal p{font:600 1.08rem/1.5 var(--body);max-width:36ch}
+.goal p strong{display:block;font:400 clamp(2.4rem,11vw,5.4rem)/.92 var(--disp);text-transform:uppercase;margin-bottom:12px}
+.peak{width:100%;max-width:300px;margin-top:20px}
+.peak .flag{transform-origin:150px 22px;animation:wave 2.4s ease-in-out infinite}
+.peak text{font:400 15px var(--disp);letter-spacing:.04em}
+@keyframes wave{50%{transform:skewY(-5deg) scaleX(.94)}}
+
+/* ---------- lore ---------- */
+.lore{padding-block:clamp(48px,9vw,120px)}
+.polaroid{position:relative;background:var(--cream);padding:9px 9px 34px;transform:rotate(-2.5deg);box-shadow:8px 10px 0 #00000080;max-width:880px;margin:0 auto 46px}
+.polaroid img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:70% 40%}
+.polaroid figcaption{position:absolute;left:14px;bottom:5px;font:400 1.05rem/1.4 var(--hand);color:#2a2a2a}
+.polaroid::before,.polaroid::after{content:"";position:absolute;width:96px;height:26px;background:#f3d27ab3;top:-12px}
+.polaroid::before{left:8%;transform:rotate(-8deg)}
+.polaroid::after{right:6%;transform:rotate(6deg)}
+.lore h2{color:var(--gold2)}
+.lore-text{margin-top:22px;font-size:1.14rem;line-height:1.7;max-width:58ch}
+.lore-text::first-letter{float:left;font:400 4.6em/.8 var(--disp);color:var(--lime);margin:.08em .08em 0 0}
+.pull{font:400 clamp(1.7rem,7vw,2.6rem)/1.1 var(--hand);color:var(--lime);transform:rotate(-3deg);margin-top:24px}
+
+/* ---------- acronym ---------- */
+.acro{padding-block:clamp(48px,8vw,110px);background:var(--deep);border-block:2.5px solid var(--black);position:relative;overflow:hidden}
+.acro::before{content:"";position:absolute;inset:0 0 auto;height:12px;background:var(--orn) 0 50%/24px 12px repeat-x;opacity:.5}
+.acro h2{font-size:clamp(1.7rem,7vw,3.2rem);color:var(--gold2)}
+.acr{margin-top:26px}
+.acr div{display:flex;align-items:baseline;gap:.35em;font:800 clamp(1.5rem,7.5vw,3.6rem)/1 var(--body);font-stretch:75%;text-transform:uppercase;color:var(--cream);margin-bottom:-.15em}
+.acr div:nth-child(2){margin-left:9%}
+.acr div:nth-child(3){margin-left:18%}
+.acr div:nth-child(4){margin-left:27%}
+.acr b{font:400 clamp(5.6rem,30vw,14rem)/.88 var(--disp);color:var(--lime);text-shadow:.04em .04em 0 var(--black);display:inline-block;transition:transform .25s cubic-bezier(.3,1.8,.5,1),color .2s;cursor:default;position:relative}
+.acr div:nth-child(even) b{color:var(--gold)}
+.acr b:hover{transform:rotate(-9deg) scale(1.08);color:var(--cream)}
+.acr div:nth-child(3)::after{content:"";width:1.1em;height:.7em;flex:none;align-self:baseline;margin-left:-.2em;transform:translateY(-.55em) rotate(14deg);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 24'%3E%3Cpath d='M3 22 L1 5 L11 13 L20 1 L29 13 L39 5 L37 22 Z' fill='%23f3d27a' stroke='%23040906' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* ---------- transparency ---------- */
+.ledger{padding-block:clamp(56px,9vw,120px)}
+.ledger-head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 18px}
+.ledger-head .note{color:var(--lime);margin-bottom:6px}
+.ledger .intro{margin:16px 0 24px;max-width:56ch}
+dl{border-top:2.5px solid var(--cream)}
+.row{padding:16px 0;border-bottom:1.5px dashed #ffffff2e}
+dt{font:800 .82rem/1.3 var(--body);font-stretch:85%;text-transform:uppercase;letter-spacing:.08em;color:var(--gold2)}
+dd{margin-top:6px;font:500 14px/1.5 var(--mono);word-break:break-all;color:var(--ink)}
+dd.plain{font:500 1.05rem/1.5 var(--body);word-break:normal}
+dd.pending{word-break:normal;color:var(--gold2);font:italic 600 .95rem/1.4 var(--body);display:flex;align-items:center;gap:10px}
+dd.pending::before{content:"PENDING";font:400 .8rem/1 var(--disp);font-style:normal;letter-spacing:.1em;padding:5px 8px 4px;border-radius:5px;background:var(--gold);color:var(--black);flex:none}
+.ledger .outro{margin-top:22px;max-width:60ch;font-size:1rem;color:#cfd9d2}
+
+/* ---------- risk ---------- */
+.risk{padding-block:0 clamp(56px,9vw,110px)}
+.risk-in{border:12px solid transparent;border-image:repeating-linear-gradient(-45deg,var(--gold) 0 12px,var(--black) 12px 24px) 12;background:#0d0d07;padding:22px 20px}
+.risk h2{color:var(--gold);font-size:clamp(2.4rem,10vw,4.4rem)}
+.risk p{margin-top:12px;font-size:1.04rem;color:#e7e2cf;max-width:62ch}
+
+/* ---------- footer ---------- */
+footer{position:relative;overflow:hidden;text-align:center;padding:40px var(--pad) 0;border-top:2.5px solid var(--black);background:var(--bg2)}
+.x{background:var(--cream);color:var(--black);font-size:1.15rem;padding:16px 30px;box-shadow:5px 5px 0 var(--lime)}
+.x:hover{background:var(--lime);box-shadow:7px 7px 0 var(--gold)}
+.x svg{width:18px;height:18px}
+.foot-note{margin-top:20px;font-size:.95rem;color:var(--mut)}
+.foot-note b{color:var(--gold2)}
+.big{font:400 clamp(7rem,38vw,30rem)/.78 var(--disp);color:transparent;-webkit-text-stroke:2px #3ddc8455;margin:28px 0 -.12em;letter-spacing:-.01em;user-select:none}
+
+/* ---------- tablet / desktop ---------- */
+@media(min-width:700px){
+  .ticket{padding:44px 44px 36px}
+  .ca{flex-direction:row;align-items:stretch}
+  .ca code{flex:1;font-size:17px;display:flex;align-items:center}
+  .copy{align-self:center}
+  .acr{display:grid;gap:0}
+}
 @media(min-width:960px){
-  .wrap{max-width:1040px;padding:0 28px}
-  header{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr auto auto 1fr;column-gap:48px;text-align:left;padding-top:28px}
-  header::before{grid-column:1/-1;margin-bottom:24px}
-  header img,header video{grid-column:1;grid-row:2/6;max-width:none;margin:0}
-  h1{grid-column:2;grid-row:3;margin:0;font-size:6rem}
-  .tag{grid-column:2;grid-row:4;font-size:1.08rem;margin:22px 0 0}
-  .wrap{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;align-items:start}
-  .wrap>header,.wrap>footer,.wrap>section{grid-column:1/-1}
-  .wrap>section:nth-of-type(2),.wrap>section:nth-of-type(3){grid-column:auto;align-self:stretch}
+  .hero{min-height:clamp(640px,100svh,940px);display:flex;align-items:flex-end;padding:0 0 clamp(36px,6vh,72px)}
+  .hero-media{position:absolute;top:0;right:0;bottom:0;width:60%;clip-path:polygon(15% 0,100% 0,100% 100%,0 100%)}
+  .hero-media::after{inset:0;height:auto;background:linear-gradient(transparent 70%,#06100acc)}
+  #hero{height:100%;aspect-ratio:auto;object-position:50% 25%}
+  .hero-edge{display:block;position:absolute;top:0;right:0;bottom:0;width:60%;background:var(--gold);clip-path:polygon(15% 0,calc(15% + 10px) 0,10px 100%,0 100%);z-index:1}
+  .meet{display:block;position:absolute;z-index:2;left:var(--pad);top:clamp(110px,17vh,170px);font:400 clamp(1.6rem,2.4vw,2.2rem)/1 var(--hand);color:var(--gold2);transform:rotate(-6deg)}
+  .meet::after{content:"";position:absolute;left:100%;top:40%;width:170px;height:70px;margin-left:10px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 70' fill='none' stroke='%23f3d27a' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M4 40 C40 70 100 66 156 18'/%3E%3Cpath d='M136 16 L157 16 L152 37'/%3E%3C/svg%3E") center/contain no-repeat}
+  .hero-copy{margin:0;max-width:60%}
+  h1{font-size:clamp(9rem,17.5vw,17rem);margin:0}
+  h1 small{font-size:clamp(1.6rem,2.4vw,2.3rem);margin-top:18px}
+  .tag{font-size:1.15rem;max-width:40ch}
+  .badge{top:auto;bottom:clamp(40px,9vh,90px);right:4vw;width:150px;height:150px}
+  .tapes{height:150px;margin-top:0}
+  .tape{font-size:2rem}
+  .tape.a{top:26px}
+  .tape.b{top:72px}
+  .ticket{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);column-gap:48px;padding:56px 56px 46px}
+  .ticket .tk-head{grid-row:1/4}
+  .ca{margin-top:0}
+  .ca code{font-size:15px}
+  .rewards .wrap{display:grid;grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+  .rw-head{position:sticky;top:40px}
+  .lead{margin-top:0;font-size:1.32rem}
+  .steps li{font-size:1.45rem;grid-template-columns:4.4rem 1fr}
+  .steps li::before{font-size:3.4rem}
+  .goal-row{display:grid;grid-template-columns:1.4fr 1fr;align-items:end;gap:40px}
+  .goal p{font-size:1.25rem}
+  .peak{max-width:380px;margin:0 0 0 auto}
+  .lore .cols{display:grid;grid-template-columns:4fr 7fr;gap:56px;align-items:start}
+  .lore-text{margin-top:0;font-size:1.28rem}
+  .polaroid{margin-bottom:72px}
+  .polaroid img{aspect-ratio:3/1;object-position:60% 35%}
+  .acro .wrap{display:grid;grid-template-columns:1fr 2.4fr;gap:40px;align-items:start}
+  .acr{margin-top:0}
+  .row{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:baseline}
+  dd{margin-top:0;font-size:15px}
+  .risk-in{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding:34px 40px}
+  .risk p{margin-top:0;font-size:1.12rem}
+}
+/* display font failed to load: heavier, smaller fallback */
+.nofont h1{font-size:clamp(4.4rem,22vw,11rem);font-weight:900}
+.nofont h1 .word{white-space:nowrap}
+.nofont h2,.nofont .acr b,.nofont .goal p strong,.nofont .tape,.nofont .big{font-weight:900}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .pre h1 .word span,.pre .badge{opacity:1}
 }
 </style>
 </head>
 <body>
-<div class="orn"></div>
-<div class="wrap">
-<header>
-  <video id="hero" autoplay muted loop playsinline preload="auto" poster="hero.jpg" aria-label="The Princess: green-haired woman holding a glowing green HYPE coin, Almaty mountains behind her"><source src="hero.mp4" type="video/mp4"><img src="hero.jpg" alt="The Princess: green-haired woman holding a green HYPE coin, Almaty mountains behind her"></video>
-  <h1>$HYPE<small>HYPER YURTS PRINCESS ENHANCED</small></h1>
-  <p class="tag">Kazakh steppe royalty, enhanced 👑 Launched on pump.fun.<br><b>Not Hyperliquid.</b> Always check the CA.</p>
+
+<nav class="top">
+  <a class="brand" href="#top"><img src="pfp.png" alt="" width="34" height="34">$HYPE</a>
+  <a class="btn" href="#get">Get $HYPE</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-media">
+    <video id="hero" autoplay muted loop playsinline preload="auto" poster="hero.jpg" aria-label="The Princess: green-haired woman holding a glowing green HYPE coin, Almaty mountains behind her"><source src="hero.mp4" type="video/mp4"><img src="hero.jpg" alt="The Princess: green-haired woman holding a green HYPE coin, Almaty mountains behind her"></video>
+  </div>
+  <div class="hero-edge" aria-hidden="true"></div>
+  <p class="meet" aria-hidden="true">meet the Princess</p>
+  <div class="hero-copy">
+    <h1><span class="word"><span>$</span><span>H</span><span>Y</span><span>P</span><span>E</span></span><small>HYPER YURTS PRINCESS ENHANCED</small></h1>
+    <p class="tag">Kazakh steppe royalty, enhanced 👑 Launched on pump.fun.<br><b>Not Hyperliquid.</b> Always check the CA.</p>
+    <div class="cta-row"><a class="btn" href="#get">Copy the CA ↓</a></div>
+  </div>
+  <div class="badge" aria-hidden="true">
+    <svg viewBox="0 0 120 120" width="150" height="150">
+      <defs><path id="bc" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"/></defs>
+      <circle cx="60" cy="60" r="58" fill="#d4a017" stroke="#040906" stroke-width="2.5"/>
+      <g class="ring"><text><textPath href="#bc" textLength="280" lengthAdjust="spacing">NOT HYPERLIQUID ✦ ALWAYS CHECK THE CA ✦</textPath></text></g>
+      <circle cx="60" cy="60" r="32" fill="#040906"/>
+      <path d="M44 70 L42 51 L52 59 L60 45 L68 59 L78 51 L76 70 Z" fill="#3ddc84" stroke="#040906" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+  </div>
 </header>
 
-<section class="card">
-  <h2>Contract address</h2>
-  <div class="ca"><code id="ca">—</code><button class="copy" id="copy">Copy</button></div>
-  <a class="btn buy" id="buy" href="#" target="_blank" rel="noopener">Buy on pump.fun</a>
-  <p class="warn">Only trust this CA. Plenty of other tokens use the ticker $HYPE, including Hyperliquid's.</p>
+<div class="tapes" aria-hidden="true">
+  <div class="tape a"><div class="track"><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span></div></div>
+  <div class="tape b"><div class="track"><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span><span>$HYPE · HYPER YURTS PRINCESS ENHANCED · NOT HYPERLIQUID ·</span></div></div>
+</div>
+
+<section class="get" id="get">
+  <div class="wrap">
+    <div class="ticket" data-r>
+      <span class="stamp" aria-hidden="true"></span>
+      <div class="tk-head">
+        <h2>Contract address</h2>
+        <span class="note">copy me ↘</span>
+      </div>
+      <div class="ca"><code id="ca">—</code><button class="copy" id="copy">Copy</button></div>
+      <a class="btn buy" id="buy" href="#" target="_blank" rel="noopener">Buy on pump.fun</a>
+      <p class="warn">Only trust this CA. Plenty of other tokens use the ticker $HYPE, including Hyperliquid's.</p>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>Holder rewards</h2>
-  <p>$HYPE is a pump.fun <b>Holder Rewards</b> coin. pump.fun's distribution wallet takes the creator share of every trade and pays it out to holders, in SOL, several times an hour.</p>
-  <ul style="margin:10px 0 0 18px">
-    <li>Hold more than $20 of HYPE to qualify.</li>
-    <li>Bigger bag, bigger share.</li>
-    <li>Nothing to claim. It lands in your wallet automatically.</li>
-  </ul>
-  <p class="fine" style="margin-top:10px">How much gets paid out depends on trading volume. With little volume, rewards are tiny. Nobody guarantees any amount. pump.fun runs the payouts, not us.</p>
+<section class="rewards">
+  <div class="wrap">
+    <div class="rw-head" data-r>
+      <h2>Holder <em>rewards</em></h2>
+      <span class="note">paid in SOL</span>
+    </div>
+    <div>
+      <p class="lead" data-r>$HYPE is a pump.fun <b>Holder Rewards</b> coin. pump.fun's distribution wallet takes the creator share of every trade and pays it out to holders, in SOL, several times an hour.</p>
+      <ol class="steps" data-r>
+        <li>Hold more than $20 of HYPE to qualify.</li>
+        <li>Bigger bag, bigger share.</li>
+        <li>Nothing to claim. It lands in your wallet automatically.</li>
+      </ol>
+      <p class="fine" data-r>How much gets paid out depends on trading volume. With little volume, rewards are tiny. Nobody guarantees any amount. pump.fun runs the payouts, not us.</p>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>The lore</h2>
-  <p>Up in the Tian Shan above Almaty, where the snow never quite leaves the peaks, the Princess rides out at dawn with a golden eagle on her arm and a green coin in her hand. She's not chasing anything. Things chase her. The steppe has told stories about her for a thousand years, and the timeline is next. She drinks kumys, spurs her horse past the charts, and plays by one rule: everything stays out in the open, and anyone can check it on-chain.</p>
+<section class="goal" aria-label="Milestone">
+  <div class="goal-in">
+    <div class="goal-row">
+      <div data-r>
+        <span class="goal-tag">next summit</span>
+        <p><strong>Real domain incoming:</strong> when $HYPE hits $25K market cap, we buy a proper domain and move the site there. This link will redirect.</p>
+      </div>
+      <svg class="peak" viewBox="0 0 300 150" aria-hidden="true">
+        <path d="M0 150 L70 72 L104 104 L150 28 L206 96 L238 70 L300 150 Z" fill="#040906"/>
+        <path d="M150 28 L168 50 L160 47 L152 55 L145 47 L135 52 Z" fill="#f5eedb"/>
+        <path d="M70 72 L80 83 L72 81 L64 86 L61 82 Z" fill="#f5eedb"/>
+        <line x1="150" y1="30" x2="150" y2="0" stroke="#040906" stroke-width="3"/>
+        <g class="flag"><path d="M151 2 L236 2 L226 14 L236 26 L151 26 Z" fill="#3ddc84" stroke="#040906" stroke-width="2.5" stroke-linejoin="round"/><text x="158" y="20" fill="#040906">$25K MC</text></g>
+      </svg>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>What HYPE stands for</h2>
-  <div class="acr"><div><b>H</b>Hyper</div><div><b>Y</b>Yurts</div><div><b>P</b>Princess</div><div><b>E</b>Enhanced</div></div>
+<section class="lore">
+  <div class="wrap">
+    <figure class="polaroid" data-r><img src="banner.jpg" alt="" width="1500" height="500" loading="lazy"><figcaption>somewhere above Almaty</figcaption></figure>
+    <div class="cols">
+      <div data-r>
+        <h2>The lore</h2>
+        <p class="pull" aria-hidden="true">“Things chase her.”</p>
+      </div>
+      <p class="lore-text" data-r>Up in the Tian Shan above Almaty, where the snow never quite leaves the peaks, the Princess rides out at dawn with a golden eagle on her arm and a green coin in her hand. She's not chasing anything. Things chase her. The steppe has told stories about her for a thousand years, and the timeline is next. She drinks kumys, spurs her horse past the charts, and plays by one rule: everything stays out in the open, and anyone can check it on-chain.</p>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>Transparency</h2>
-  <p class="fine" style="margin-bottom:12px">Every claim below links to the chain. If a field says "pending", the link hasn't been posted yet.</p>
-  <dl>
-    <dt>Trading fees</dt><dd style="font-family:inherit;word-break:normal">Go to holders through pump.fun Holder Rewards. The dev gets no creator fees. This was set when the coin was created and can't be changed back.</dd>
-    <dt>Creation tx (dev buy happened inside it)</dt><dd data-k="createTx"></dd>
-    <dt>Dev wallet</dt><dd data-k="devWallet"></dd>
-    <dt>Dev wallet holding</dt><dd data-k="devHolding"></dd>
-  </dl>
-  <p class="fine" style="margin-top:12px">Community run. No KOL allocations, no bundles, no side wallets, no fake volume. If the dev ever sells, it gets announced here and on X first.</p>
+<section class="acro">
+  <div class="wrap">
+    <h2 data-r>What HYPE stands for</h2>
+    <div class="acr"><div><b>H</b>Hyper</div><div><b>Y</b>Yurts</div><div><b>P</b>Princess</div><div><b>E</b>Enhanced</div></div>
+  </div>
 </section>
 
-<section class="card fine">
-  <h2>Read this</h2>
-  <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most pump.fun coins never graduate and go to zero. Any holder, the dev included, can sell at any time. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
+<section class="ledger">
+  <div class="wrap">
+    <div class="ledger-head" data-r><h2>Transparency</h2><span class="note">check it on-chain</span></div>
+    <p class="fine intro" data-r>Every claim below links to the chain. If a field says "pending", the link hasn't been posted yet.</p>
+    <dl data-r>
+      <div class="row"><dt>Trading fees</dt><dd class="plain">Go to holders through pump.fun Holder Rewards. The dev gets no creator fees. This was set when the coin was created and can't be changed back.</dd></div>
+      <div class="row"><dt>Creation tx (dev buy happened inside it)</dt><dd data-k="createTx"></dd></div>
+      <div class="row"><dt>Dev wallet</dt><dd data-k="devWallet"></dd></div>
+      <div class="row"><dt>Dev wallet holding</dt><dd data-k="devHolding"></dd></div>
+    </dl>
+    <p class="outro" data-r>Community run. No KOL allocations, no bundles, no side wallets, no fake volume. If the dev ever sells, it gets announced here and on X first.</p>
+  </div>
+</section>
+
+<section class="risk">
+  <div class="wrap">
+    <div class="risk-in" data-r>
+      <h2>Read this</h2>
+      <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most pump.fun coins never graduate and go to zero. Any holder, the dev included, can sell at any time. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <a class="btn x" id="xlink" href="#" target="_blank" rel="noopener">Follow on X</a>
+  <a class="btn x" id="xlink" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.2 2h3.4l-7.4 8.5L23 22h-6.8l-5.3-7-6.1 7H1.4l7.9-9L1 2h7l4.8 6.4L18.2 2Zm-1.2 18h1.9L7.1 3.9H5.1L17 20Z"/></svg>Follow on X</a>
+  <p class="foot-note"><b>Not Hyperliquid.</b> Always check the CA.</p>
+  <div class="big" aria-hidden="true">$HYPE</div>
 </footer>
-</div>
-<div class="orn"></div>
 
 <script>
 // ===== Fill these in after launch. Leave "" for anything not posted yet. =====
@@ -177,6 +423,74 @@ $("copy").onclick = async () => {
   catch { const r = document.createRange(); r.selectNode($("ca")); getSelection().removeAllRanges(); getSelection().addRange(r); document.execCommand("copy"); }
   $("copy").textContent = "Copied ✓"; setTimeout(() => $("copy").textContent = "Copy", 1500);
 };
+</script>
+<script>
+// Optional polish. Everything above works without it.
+(() => {
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.fonts?.ready.then(() => { if (![...document.fonts].some(f => f.family.replace(/"/g, "") === "Anton" && f.status === "loaded")) document.documentElement.classList.add("nofont"); });
+
+  // Copy feedback: a little burst of coins from the button
+  const btn = $("copy");
+  btn.addEventListener("click", () => {
+    if (!CFG.ca) return;
+    btn.classList.add("done"); setTimeout(() => btn.classList.remove("done"), 1500);
+    if (calm || !btn.animate) return;
+    const r = btn.getBoundingClientRect();
+    for (let i = 0; i < 14; i++) {
+      const d = document.createElement("i"), a = Math.random() * Math.PI * 2, s = 50 + Math.random() * 70, z = 7 + Math.random() * 9;
+      d.style.cssText = `position:fixed;z-index:60;pointer-events:none;left:${r.left + r.width / 2}px;top:${r.top + r.height / 2}px;width:${z}px;height:${z}px;border-radius:50%;border:2px solid #040906;background:${i % 3 ? "#3ddc84" : "#d4a017"}`;
+      document.body.appendChild(d);
+      d.animate([{transform:"translate(-50%,-50%) scale(1)", opacity:1}, {transform:`translate(calc(-50% + ${Math.cos(a) * s}px), calc(-50% + ${Math.sin(a) * s + 40}px)) scale(.4)`, opacity:0}], {duration:700 + Math.random() * 300, easing:"cubic-bezier(.2,.7,.3,1)"}).onfinish = () => d.remove();
+    }
+  });
+
+  const go = () => {
+    const root = document.documentElement;
+    if (calm || !window.gsap || !window.ScrollTrigger) { root.classList.remove("pre"); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.ticker.lagSmoothing(0); // finish on time even after a janky frame
+
+    // Hero entrance
+    gsap.from("h1 .word span", {y: 90, rotate: i => (i % 2 ? 9 : -9), opacity: 0, duration: .9, stagger: .07, ease: "back.out(1.7)"});
+    gsap.from("h1 small, .hero .tag, .cta-row", {y: 24, opacity: 0, duration: .7, stagger: .1, delay: .35, ease: "power3.out"});
+    gsap.from(".badge", {scale: 0, rotate: -120, opacity: 0, duration: 1, delay: .55, ease: "back.out(2)"});
+    root.classList.remove("pre");
+
+    // Video drifts slower than the page
+    gsap.to("#hero", {yPercent: 10, scale: 1.05, ease: "none", scrollTrigger: {trigger: ".hero", start: "top top", end: "bottom top", scrub: true}});
+
+    // Scroll reveals
+    gsap.set("[data-r]", {y: 44, opacity: 0});
+    const io = new IntersectionObserver(entries => {
+      const els = entries.filter(e => e.isIntersecting).map(e => (io.unobserve(e.target), e.target));
+      if (els.length) gsap.to(els, {y: 0, opacity: 1, duration: .8, stagger: .1, ease: "power3.out"});
+    }, {rootMargin: "0px 0px -4% 0px"});
+    document.querySelectorAll("[data-r]").forEach(el => io.observe(el));
+    gsap.from(".acr div", {x: -60, opacity: 0, duration: .8, stagger: .12, ease: "back.out(1.4)", scrollTrigger: {trigger: ".acr", start: "top 85%"}});
+    gsap.from(".goal-in", {xPercent: -6, rotate: -5, duration: 1, ease: "power3.out", scrollTrigger: {trigger: ".goal", start: "top 90%"}});
+
+    // Late fonts and images change section heights; re-measure when the page size changes
+    let rq, lastH = 0;
+    new ResizeObserver(() => {
+      const h = document.body.offsetHeight;
+      if (h === lastH) return; lastH = h;
+      cancelAnimationFrame(rq); rq = requestAnimationFrame(() => ScrollTrigger.refresh());
+    }).observe(document.body);
+
+    // Tapes speed up while you scroll
+    const tweens = [...document.querySelectorAll(".track")].map((t, i) => {
+      t.style.animation = "none";
+      return gsap.fromTo(t, {xPercent: i ? -50 : 0}, {xPercent: i ? 0 : -50, duration: 30, ease: "none", repeat: -1});
+    });
+    const speed = {v: 1};
+    ScrollTrigger.create({onUpdate: st => {
+      speed.v = Math.max(speed.v, 1 + Math.min(Math.abs(st.getVelocity()) / 250, 6));
+      gsap.to(speed, {v: 1, duration: 1, ease: "power2.out", overwrite: true, onUpdate: () => tweens.forEach(t => t.timeScale(speed.v))});
+    }});
+  };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", go); else go();
+})();
 </script>
 </body>
 </html>
