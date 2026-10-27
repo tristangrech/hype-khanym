@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>$HYPE · Hyper Yurts Princess Enhanced on Solana</title>
-<meta name="description" content="Hyper Yurts Princess Enhanced ($HYPE): a Kazakh-steppe memecoin on pump.fun. Not Hyperliquid. Always check the CA.">
+<meta name="description" content="Hyper Yurts Princess Enhanced ($HYPE): a Kazakh-steppe memecoin on uselaunch.fun, paired with real $HYPE. Not Hyperliquid. Always check the CA.">
 <meta property="og:title" content="$HYPE · Hyper Yurts Princess Enhanced">
-<meta property="og:description" content="Kazakh steppe royalty, enhanced. A pump.fun Holder Rewards coin: hold $HYPE, earn SOL from trading fees. Not Hyperliquid.">
+<meta property="og:description" content="Kazakh steppe royalty, enhanced. Our $HYPE, priced in real $HYPE, on uselaunch.fun. Every trade buys back and burns. Not Hyperliquid.">
 <meta property="og:image" content="https://tristangrech.github.io/hype-khanym/banner.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#06100a">
@@ -276,7 +276,7 @@ footer{position:relative;overflow:hidden;text-align:center;padding:40px var(--pa
   <p class="meet" aria-hidden="true">meet the Princess</p>
   <div class="hero-copy">
     <h1><span class="word"><span>$</span><span>H</span><span>Y</span><span>P</span><span>E</span></span><small>HYPER YURTS PRINCESS ENHANCED</small></h1>
-    <p class="tag">Kazakh steppe royalty, enhanced 👑 Launched on pump.fun.<br><b>Not Hyperliquid.</b> Always check the CA.</p>
+    <p class="tag">Kazakh steppe royalty, enhanced 👑 v2 on uselaunch.fun, paired with real $HYPE.<br><b>Not Hyperliquid.</b> Always check the CA.</p>
     <div class="cta-row"><a class="btn" href="#get">Copy the CA ↓</a></div>
   </div>
   <div class="badge" aria-hidden="true">
@@ -304,8 +304,9 @@ footer{position:relative;overflow:hidden;text-align:center;padding:40px var(--pa
         <span class="note">copy me ↘</span>
       </div>
       <div class="ca"><code id="ca">—</code><button class="copy" id="copy">Copy</button></div>
-      <a class="btn buy" id="buy" href="#" target="_blank" rel="noopener">Buy on pump.fun</a>
+      <a class="btn buy" id="buy" href="#" target="_blank" rel="noopener">Buy on uselaunch</a>
       <p class="warn">Only trust this CA. Plenty of other tokens use the ticker $HYPE, including Hyperliquid's.</p>
+      <p class="warn">Old v1 on pump.fun (<code>EySq…Ntpump</code>) is abandoned: the dev sold everything on 26 Oct. Don't buy it.</p>
     </div>
   </div>
 </section>
@@ -313,17 +314,17 @@ footer{position:relative;overflow:hidden;text-align:center;padding:40px var(--pa
 <section class="rewards">
   <div class="wrap">
     <div class="rw-head" data-r>
-      <h2>Holder <em>rewards</em></h2>
-      <span class="note">paid in SOL</span>
+      <h2>Every trade <em>burns</em></h2>
+      <span class="note">paired with real $HYPE</span>
     </div>
     <div>
-      <p class="lead" data-r>$HYPE is a pump.fun <b>Holder Rewards</b> coin. pump.fun's distribution wallet takes the creator share of every trade and pays it out to holders, in SOL, several times an hour.</p>
+      <p class="lead" data-r>$HYPE v2 trades on <b>uselaunch.fun</b>, priced in real $HYPE (Hyperliquid's token, bridged to Solana by Wormhole). Every trade pays uselaunch a 3% fee, split three ways.</p>
       <ol class="steps" data-r>
-        <li>Hold more than $20 of HYPE to qualify.</li>
-        <li>Bigger bag, bigger share.</li>
-        <li>Nothing to claim. It lands in your wallet automatically.</li>
+        <li>1% buys back $HYPE (ours) and burns it.</li>
+        <li>1% buys and burns $LAUNCH.</li>
+        <li>1% goes to the uselaunch treasury.</li>
       </ol>
-      <p class="fine" data-r>How much gets paid out depends on trading volume. With little volume, rewards are tiny. Nobody guarantees any amount. pump.fun runs the payouts, not us.</p>
+      <p class="fine" data-r>Nobody gets paid for holding. Burns depend on trading volume: no volume, no burns. The price is quoted in real HYPE, so it also moves with Hyperliquid's price. uselaunch runs the fees and burns, not us.</p>
     </div>
   </div>
 </section>
@@ -371,12 +372,13 @@ footer{position:relative;overflow:hidden;text-align:center;padding:40px var(--pa
     <div class="ledger-head" data-r><h2>Transparency</h2><span class="note">check it on-chain</span></div>
     <p class="fine intro" data-r>Every claim below links to the chain. If a field says "pending", the link hasn't been posted yet.</p>
     <dl data-r>
-      <div class="row"><dt>Trading fees</dt><dd class="plain">Go to holders through pump.fun Holder Rewards. The dev gets no creator fees. This was set when the coin was created and can't be changed back.</dd></div>
-      <div class="row"><dt>Creation tx (dev buy happened inside it)</dt><dd data-k="createTx"></dd></div>
+      <div class="row"><dt>Trading fees</dt><dd class="plain">3% per trade to uselaunch: 1% buys back and burns $HYPE, 1% burns $LAUNCH, 1% to their treasury. The dev gets no fees.</dd></div>
+      <div class="row"><dt>Creation tx (by the uselaunch master wallet)</dt><dd data-k="createTx"></dd></div>
       <div class="row"><dt>Dev wallet</dt><dd data-k="devWallet"></dd></div>
       <div class="row"><dt>Dev wallet holding</dt><dd data-k="devHolding"></dd></div>
+      <div class="row"><dt>v1 history (pump.fun, abandoned)</dt><dd class="plain">CA EySq1Gwjxd1dDcavaK4V7EUoiqqW8MoaEXeZCMNtpump. The dev bought ~6.2M HYPE in total, sent 500,000 each to 5YRgrP3mjGzrzirYYN5HAQH19cTYREYwGxW6XRJQUzij and 8UvBDCgKuDXW9qQxfwrU5z8CsogjLMfa4uZc13Xo94Di, then sold the remaining 5,238,585 on 26 Oct 2026 at 11:20 UTC (tx 5HvfAVJc…T58Yzp).</dd></div>
     </dl>
-    <p class="outro" data-r>Community run. No KOL allocations, no bundles, no side wallets, no fake volume. If the dev ever sells, it gets announced here and on X first.</p>
+    <p class="outro" data-r>Community run. No KOL allocations, no bundles, no fake volume. Every dev wallet move is published here.</p>
   </div>
 </section>
 
@@ -384,7 +386,7 @@ footer{position:relative;overflow:hidden;text-align:center;padding:40px var(--pa
   <div class="wrap">
     <div class="risk-in" data-r>
       <h2>Read this</h2>
-      <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most pump.fun coins never graduate and go to zero. Any holder, the dev included, can sell at any time. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
+      <p>$HYPE is a memecoin and nothing more. It has no utility, no roadmap, and no promise of value. Most launchpad coins never graduate and go to zero. Any holder, the dev included, can sell at any time. Only spend what you're fine losing completely. Nothing here is financial advice.</p>
     </div>
   </div>
 </section>
@@ -398,10 +400,10 @@ footer{position:relative;overflow:hidden;text-align:center;padding:40px var(--pa
 <script>
 // ===== Fill these in after launch. Leave "" for anything not posted yet. =====
 const CFG = {
-  ca: "EySq1Gwjxd1dDcavaK4V7EUoiqqW8MoaEXeZCMNtpump",                 // token mint address (pump.fun CA, ends in "pump")
-  createTx: "R4rvS7zumAs8kLJ6YxaTKJrMDqGbbMN8ytmvLqe9P8FTqqFN4sp15RWVaw6WvodBx6Myy33ybkkyZQQtoQmMVuM",           // tx signature
-  devWallet: "7PRNzVKiQtCFkSmptTnucdfLFxL3LwBPiJzG14LVjLzs",
-  devHolding: "0%. On 26 Oct 2026 at 11:20 UTC the dev wallet sold all 5,238,585 HYPE back to the curve for 0.145 SOL (tx 5HvfAVJc…T58Yzp on Solscan). Before that it sent 500,000 HYPE each to 5YRgrP3mjGzrzirYYN5HAQH19cTYREYwGxW6XRJQUzij and 8UvBDCgKuDXW9qQxfwrU5z8CsogjLMfa4uZc13Xo94Di.",         // e.g. "3.41% (34.1M HYPE), bought in the creation tx"
+  ca: "",                 // v2 token mint on uselaunch.fun
+  createTx: "",           // tx signature
+  devWallet: "",
+  devHolding: "",
   x: "https://x.com/fullhaura"     // project X account
 };
 // ============================================================================
@@ -415,7 +417,7 @@ document.querySelectorAll("dd[data-k]").forEach(dd => {
 });
 $("ca").textContent = CFG.ca || "CA posted at launch. Ignore any CA you get in DMs.";
 const buy = $("buy");
-if (CFG.ca) buy.href = "https://pump.fun/coin/" + CFG.ca; else buy.setAttribute("aria-disabled", "true");
+if (CFG.ca) buy.href = "https://uselaunch.fun/c/" + CFG.ca; else buy.setAttribute("aria-disabled", "true");
 $("xlink").href = CFG.x;
 $("copy").onclick = async () => {
   if (!CFG.ca) return;
